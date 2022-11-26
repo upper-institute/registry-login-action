@@ -22,7 +22,7 @@ const login = async (client, username, password, registryEndpoint, extraArgs) =>
 
     if (exitCode !== 0) {
         core.debug(doLoginStdout)
-        throw new Error(`Could not login to registry ${registryUri}: ${doLoginStderr}`)
+        throw new Error(`Could not login to registry ${registryEndpoint}: ${doLoginStderr}`)
     }
 }
 
