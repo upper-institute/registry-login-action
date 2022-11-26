@@ -69,7 +69,7 @@ async function main() {
             await login(client, username, password, registryUri, extraAgs)
 
             core.setOutput(`username_${index}`, username)
-            core.maskValue(password)
+            core.setSecret(password)
             core.setOutput(`password_${index}`, password)
             core.setOutput(`registry_endpoint_${index}`, registryEndpoint)
             core.setOutput(`registry_uri_${index}`, registryUri)
