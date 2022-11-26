@@ -1,0 +1,22 @@
+name: 'Registry Login Action'
+description: 'Action to login to registry (podman or docker)'
+inputs:
+  client:
+    description: 'What client to use (podman or docker)'
+    required: true
+    default: podman
+  driver:
+    description: 'Which driver to use'
+    required: true
+    default: 'aws.ecr'
+  prefix:
+    description: 'Extra arguments to pass to client (each line is one argument)'
+    required: false
+  logout:
+    description: 'Logout of the registries during post-job cleanup'
+    required: true
+    default: 'true'
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
+  post: 'dist/cleanup/index.js'

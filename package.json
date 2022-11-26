@@ -1,0 +1,32 @@
+{
+  "name": "registry-login-action",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-index": "./node_modules/.bin/ncc build index.js --license licenses.txt",
+    "build-cleanup": "./node_modules/.bin/ncc build cleanup.js --license licenses.txt --out dist/cleanup",
+    "build": "npm run build-index && npm run build-cleanup"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/upper-institute/registry-login-action.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/upper-institute/registry-login-action/issues"
+  },
+  "homepage": "https://github.com/upper-institute/registry-login-action#readme",
+  "dependencies": {
+    "@actions/core": "^1.10.0",
+    "@actions/exec": "^1.1.1",
+    "@actions/github": "^5.1.1",
+    "aws-sdk": "^2.1261.0"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.34.0"
+  }
+}
