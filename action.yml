@@ -9,7 +9,7 @@ inputs:
     description: 'Which driver to use'
     required: true
     default: 'aws.ecr'
-  prefix:
+  extraArgs:
     description: 'Extra arguments to pass to client (each line is one argument)'
     required: false
   logout:

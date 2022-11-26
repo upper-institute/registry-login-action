@@ -1,6 +1,6 @@
-import aws from './aws'
-import exec from '@actions/exec'
-import core from '@actions/core'
+const aws = require('./aws')
+const exec = require('@actions/exec')
+const core = require('@actions/core')
 
 const login = async (client, username, password, registryEndpoint, extraArgs) => {
 

@@ -1,5 +1,5 @@
-import exec from '@actions/exec'
-import core from '@actions/core'
+const exec = require('@actions/exec')
+const core = require('@actions/core')
 
 const logout = async (client, registry) => {
 

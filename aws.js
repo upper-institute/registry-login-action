@@ -1,4 +1,4 @@
-import aws from 'aws-sdk'
+const AWS = require('aws-sdk')
 
 const ECR_LOGIN_GITHUB_ACTION_USER_AGENT = 'amazon-ecr-login-for-github-actions'
 
@@ -13,7 +13,7 @@ export const configure = () => {
 }
 
 const getECRAuthTokenWrapper = async (authTokenRequest) => {
-    const ecr = new aws.ECR({
+    const ecr = new AWS.ECR({
         customUserAgent: ECR_LOGIN_GITHUB_ACTION_USER_AGENT
     })
 
