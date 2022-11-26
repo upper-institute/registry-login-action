@@ -2,12 +2,12 @@ const aws = require('./aws')
 const exec = require('@actions/exec')
 const core = require('@actions/core')
 
-const login = async (client, username, password, registryEndpoint, extraArgs) => {
+const login = async (client, username, password, registryUri, extraArgs) => {
 
     let doLoginStdout = ''
     let doLoginStderr = ''
 
-    const exitCode = await exec.exec(client, ['login', '-u', username, '-p', password, registryEndpoint, ...extraArgs], {
+    const exitCode = await exec.exec(client, ['login', '-u', username, '-p', password, registryUri, ...extraArgs], {
         silent: true,
         ignoreReturnCode: true,
         listeners: {
@@ -22,7 +22,7 @@ const login = async (client, username, password, registryEndpoint, extraArgs) =>
 
     if (exitCode !== 0) {
         core.debug(doLoginStdout)
-        throw new Error(`Could not login to registry ${registryEndpoint}: ${doLoginStderr}`)
+        throw new Error(`Could not login to registry ${registryUri}: ${doLoginStderr}`)
     }
 }
 
@@ -66,7 +66,7 @@ async function main() {
 
             core.info(`Login registry ${registryUri} (client: ${client})`)
 
-            await login(client, username, password, registryEndpoint, extraAgs)
+            await login(client, username, password, registryUri, extraAgs)
 
             core.setOutput(`username_${index}`, username)
             core.maskValue(password)
