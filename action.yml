@@ -16,6 +16,18 @@ inputs:
     description: 'Logout of the registries during post-job cleanup'
     required: true
     default: 'true'
+  username:
+    description: 'Username to sign in registry (only for "custom" driver)'
+    required: false
+    default: ''
+  password:
+    description: 'password to sign in registry (only for "custom" driver)'
+    required: false
+    default: ''
+  registry:
+    description: 'URL/URI to sign in registry (only for "custom" driver)'
+    required: false
+    default: ''
 runs:
   using: 'node16'
   main: 'dist/index.js'
