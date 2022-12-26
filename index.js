@@ -58,7 +58,7 @@ async function main() {
                     core.getInput('password'),
                     core.getInput('registry'),
                 ]
-
+                break
             default:
                 throw new Error(`Invalid driver: ${driver}`)
         }
