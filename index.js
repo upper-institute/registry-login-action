@@ -53,11 +53,12 @@ async function main() {
                 break
             case 'custom':
 
-                credentials = [
+                credentials = [[
                     core.getInput('username'),
                     core.getInput('password'),
                     core.getInput('registry'),
-                ]
+                ]]
+
                 break
             default:
                 throw new Error(`Invalid driver: ${driver}`)
